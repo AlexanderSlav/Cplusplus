@@ -1,41 +1,31 @@
 #include <iostream>
-<<<<<<< HEAD
-
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
-}
-=======
+#include <cmath>
+#include "2.h"
 using namespace std;
 
 
-int ** create_array2d(size_t a, size_t b){
-        int ** m = new int *[a];
-        for (size_t i = 0; i != a; ++i)
-            m[i] = new int [b];
-        for (size_t i = 0; i != a; i++)
-            cout<< *m[i]<<endl;
-        return m;
+
+struct  Segment{
+    Point p1;
+    Point p2;
+    double length(){
+        double dx = p1.x - p2.x;
+        double dy = p1.y - p2.y;
+        return sqrt(dx * dx + dy * dy);
+
+    }
+};
+
+void Point::shift(double x, double y) {
+    this->x += x;
+    this->y += y;
+
 }
-
-void free_array2d(int ** m, size_t a, size_t b){
-    for (size_t i = 0; i != a; ++i)
-        delete [] m[i];
-    delete [] m;
-
-}
-
 
 int main() {
-    /*
-    int ** m  = new int * [5];
-    for (size_t i = 0; i != 5; i++){
-        m[i] = new int[4];
-    }
-     */
-    try {
-
-    }
-
+    Point a1 = {1.0, 2.0};
+    Point a2 = {7.0, 8.0};
+    a1.shift(1.0, 2.0);
+    Segment s = {a1, a2};
+    cout << s.length();
 }
->>>>>>> f0b5b85b4e734ef2437321f336e62877ef9d3e0e
